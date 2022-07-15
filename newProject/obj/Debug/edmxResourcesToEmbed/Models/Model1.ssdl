@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="newsDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="adminId" />
+    </Key>
+    <Property Name="adminId" Type="int" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="recentNews">
+    <Key>
+      <PropertyRef Name="newsId" />
+    </Key>
+    <Property Name="newsId" Type="int" Nullable="false" />
+    <Property Name="newsDescription" Type="varchar" MaxLength="50" />
+    <Property Name="newsDate" Type="varchar" MaxLength="30" />
+    <Property Name="newsImage" Type="varchar" MaxLength="255" />
+    <Property Name="newsDetail" Type="varchar" MaxLength="2000" />
+  </EntityType>
+  <EntityContainer Name="newsDatabaseModelStoreContainer">
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="recentNews" EntityType="Self.recentNews" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="newsDatabaseModelStoreContainer" CdmEntityContainer="newsDatabaseEntities">
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="newsDatabaseModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recentNews">
+      <EntityTypeMapping TypeName="newsDatabaseModel.recentNew">
+        <MappingFragment StoreEntitySet="recentNews">
+          <ScalarProperty Name="newsId" ColumnName="newsId" />
+          <ScalarProperty Name="newsDescription" ColumnName="newsDescription" />
+          <ScalarProperty Name="newsDate" ColumnName="newsDate" />
+          <ScalarProperty Name="newsImage" ColumnName="newsImage" />
+          <ScalarProperty Name="newsDetail" ColumnName="newsDetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

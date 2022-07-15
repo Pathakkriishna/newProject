@@ -1,0 +1,183 @@
+﻿@{
+    ViewBag.Title = "loginPage";
+    Layout = null;
+}
+<html>
+<head>
+    <title>Admin Login Page</title>
+    @*<link rel="stylesheet" href="~/Content/AdminPannel/adminLoginPage/adminLoginPageCss.css" />*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .loginBox {
+            height: 400px;
+            width: 50%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 10px 10px 30px 10px #DDDEE3;
+            margin-top: 180px;
+            margin-left: 400px;
+            display: flex;
+        }
+
+        .forLogo {
+            height: 350px;
+            width: 40%;
+        }
+
+            .forLogo img {
+                height: 200px;
+                width: 200px;
+                margin-top: 95px;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+
+        .forerror {
+            height: 50px;
+            width: 350px;
+            background-color: #FFE0DD;
+            margin-left: 50px;
+            border-radius: 10px;
+            padding-top: 13px;
+            display: flex;
+            border: 1px solid #D84943;
+            margin-top: 20px;
+            visibility: hidden;
+        }
+
+        .icon {
+            margin-left: 50px;
+            font-size: 20px;
+            color: #D84943;
+            margin-top: 1px;
+        }
+
+        .text {
+            margin-left: 20px;
+            color: #D84943;
+            font-size: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .formValue {
+            margin-top: 20px;
+            margin-left: 50px;
+        }
+
+        label {
+            font-size: 20px;
+            font-family: 'Poppins', sans-serif;
+            color: black;
+        }
+
+        input {
+            height: 50px;
+            border-radius: 10px;
+            border-style: none;
+            border: 1px solid black;
+            margin-top: 5px;
+            width: 350px;
+            padding-left: 20px;
+            font-size: 20px;
+            color: #696969;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        button {
+            margin-top: 30px;
+            width: 350px;
+            height: 50px;
+            background-color: #696969;
+            font-size: 20px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 10px;
+            border-style: none;
+            border: 1px solid #696969;
+        }
+
+            button:hover {
+                background-color: black;
+            }
+    </style>
+</head>
+<body>
+    <div class="loginBox">
+
+        <div class="forLogo">
+            <img src="~/Content/download.jfif"/>
+        </div>
+        <div class="forForm" style="background-color: rgb(244, 244, 244); width: 100%; margin-left: 10px; ">
+            <div class="forerror" id="errorBox">
+                <div class="icon" id="errorIcon">
+                    <i class="fa fa-exclamation-triangle"></i>
+                </div>
+                <div class="text">
+                    <p id="errorMessage"></p>
+                </div>
+
+
+            </div>
+            <div class="formValue">
+                @using (Html.BeginForm("checkID", "adminLogin", FormMethod.Post, new { id = "mainform1" }))
+                {
+                    <label>Admin Id</label>
+                    <br />
+                    <input type="text" id="adminId" name="adminId" style="margin-bottom:20px;" />
+                    <br />
+                    <label>Password</label>
+                    <br />
+                    <input type="password" id="password" name="password" />
+                    <br />
+                    <button onclick=" return checkEmpty();">Log In</button>
+                }
+            </div>
+        </div>
+    </div>
+    <script>
+        checkIdPassword();
+        function checkEmpty() {
+            var idValue = document.getElementById("adminId").value;
+            var pwValue = document.getElementById("password").value;
+            if (idValue == "" && pwValue == "") {
+                document.getElementById("errorBox").style.visibility = "Visible";
+                document.getElementById("errorMessage").innerHTML = "Empty Id and Password "
+                document.getElementById("errorIcon").style.visibility = "Visible";
+                return false;
+            }
+            else if (idValue == "") {
+                document.getElementById("errorBox").style.visibility = "Visible";
+                document.getElementById("errorMessage").innerHTML = "Id cannot be Empty "
+                document.getElementById("errorIcon").style.visibility = "Visible";
+                return false;
+            }
+            else if (pwValue == "") {
+                document.getElementById("errorBox").style.visibility = "Visible";
+                document.getElementById("errorMessage").innerHTML = "Password cannot be Empty "
+                document.getElementById("errorIcon").style.visibility = "Visible";
+                return false;
+            }
+            else {
+                $("#mainform1").submit();
+            }
+        }
+        function checkIdPassword()
+        {
+            if ("@Session["error1"]" == "false") {
+                document.getElementById("errorBox").style.visibility = "Visible";
+                document.getElementById("errorMessage").innerHTML = "Incorrect Id or Password";
+                document.getElementById("errorIcon").style.visibility = "Visible";
+            }
+
+        }
+
+    </script>
+</body>
+</html>

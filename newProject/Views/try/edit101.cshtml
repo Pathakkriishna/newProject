@@ -1,0 +1,35 @@
+﻿@model newProject.Models.recentNew
+@{
+    ViewBag.Title = "edit101";
+}
+
+<h2>edit101</h2>
+
+@using (Html.BeginForm("update","try"))
+            {
+                <form action="saveData">
+                    <label> News ID</label>
+
+                    <input type="text" class="form-control" value="@Model.newsId" name="newsId">
+
+                    <label>News Description</label>
+
+                    <input type="text" class="form-control"  value="@Model.newsDescription" name="newsDescription">
+
+                    <label>Image</label>
+
+                    <input type="file" value="Choose Image" name="SelectedImg">
+
+                    <label>News Date</label>
+
+                    <input type="text" class="form-control" value="@Model.newsDate" name="newsDate">
+
+                    <label>News Detail</label>
+
+                    <input type="text" class="form-control" value="@Model.newsDetail" name="newsDetail">
+
+
+                    <input type="submit" value="Add +" class="btn btn-success" style="width: 100%; margin-top: 20px; height: 50px; font-size: 20px;">
+
+                </form>
+            }

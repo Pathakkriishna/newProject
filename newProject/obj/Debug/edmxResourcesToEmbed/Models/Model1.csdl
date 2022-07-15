@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="newsDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="adminId" />
+    </Key>
+    <Property Name="adminId" Type="Int32" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="recentNew">
+    <Key>
+      <PropertyRef Name="newsId" />
+    </Key>
+    <Property Name="newsId" Type="Int32" Nullable="false" />
+    <Property Name="newsDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="newsDate" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="newsImage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="newsDetail" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="newsDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admins" EntityType="Self.admin" />
+    <EntitySet Name="recentNews" EntityType="Self.recentNew" />
+  </EntityContainer>
+</Schema>
