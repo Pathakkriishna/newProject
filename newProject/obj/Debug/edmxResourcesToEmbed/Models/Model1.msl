@@ -12,6 +12,8 @@
     <EntitySetMapping Name="recentNews">
       <EntityTypeMapping TypeName="newsDatabaseModel.recentNew">
         <MappingFragment StoreEntitySet="recentNews">
+          <ScalarProperty Name="imageCaption" ColumnName="imageCaption" />
+          <ScalarProperty Name="author" ColumnName="author" />
           <ScalarProperty Name="newsId" ColumnName="newsId" />
           <ScalarProperty Name="newsDescription" ColumnName="newsDescription" />
           <ScalarProperty Name="newsDate" ColumnName="newsDate" />

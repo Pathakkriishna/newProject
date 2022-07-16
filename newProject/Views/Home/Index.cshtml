@@ -1,22 +1,22 @@
 ﻿@model List<newProject.Models.recentNew>
 <style>
     .recentNews {
-        height: 500px;
+        
         width: 100%;
         display:flex;
     }
 
-    .newsBox {
-        height: 450px;
-        width: 30%;
-        border:1px solid black;
+    .Box {
+       
+        
+        height: 500px;
+        width:250px;
         margin-left:10px;
     }
 
-    .imgBox {
-        height: 300px;
-        width: 100%;
-       
+   
+    .newsBox>.imageBox>img{
+
     }
 
     .desc {
@@ -53,25 +53,42 @@
     <!--/mag-content-->
     <div class="mag-content-inf py-5">
         <div class="container">
-            <div class="banner-bottom-sechny py-md-4">
+            <div class="">
                 <h3 class="hny-title text-center">Recent <span>News</span></h3>
-                <div class="recentNews">
+                 <div class="recentNews">
                     @foreach (var data in Model)
                     {
 
-                        <div class="newsBox">
-                            <div class="imgBox">
-                                <img src="@(data.newsImage!= null ?  Url.Content(data.newsImage):"")" />
-                            </div>
-                            <div class="newsTopic">
-                                <h4>@(data.newsDescription)</h4>
-                            </div>
-                            <div class="newsDate">
-                                <p>@(data.newsDate)</p>
-                            </div>
-                            <div class="readMore">
-                                <a href="#">Read More</a>
-                            </div>
+                        <div class="Box">
+                            @*<div class="">*@
+                                <div class="img">
+                                    <div class="maghny-grid">
+                                        <figure class="effect-lily">
+                                            <img src="@(data.newsImage!= null ?  Url.Content(data.newsImage):"")" />
+                                            <figcaption>
+                                                <div>
+                                                    <h4>@(data.imageCaption)</h4>
+                                                    <p>@(data.newsDate) </p>
+                                                </div>
+
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <h5 class="top-title">
+                                    <a href="#">
+                                        @(data.newsDescription)
+                                    </a>
+                                </h5>
+
+                                <div class="mag-post-meta mt-3">
+                                    <span class="meta-author text-uppercase">
+                                        <span>By&nbsp;</span><a href="#" class="author-name"> @(data.author) </a>
+                                    </span>
+                                    <span class="author-date">@(data.newsDate)</span>
+                                </div>
+                                <a href="#" class="read-more btn mt-3">Read More</a>
+                            @*</div>*@
                         </div>
                     }
 

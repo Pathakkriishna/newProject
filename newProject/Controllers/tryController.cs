@@ -37,6 +37,8 @@ namespace newProject.Controllers
             recentNew value = db.recentNews.Find(series.newsId);
             value.newsId = series.newsId;
             value.newsDescription = series.newsDescription;
+            value.imageCaption = series.imageCaption;
+            value.author = series.author;
             value.newsDate = series.newsDate;
             value.newsDetail = series.newsDetail;
             string path = Server.MapPath("~/uploads");

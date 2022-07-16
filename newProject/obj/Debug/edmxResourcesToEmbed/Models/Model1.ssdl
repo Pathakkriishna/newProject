@@ -14,8 +14,10 @@
     <Property Name="newsId" Type="int" Nullable="false" />
     <Property Name="newsDescription" Type="varchar" MaxLength="50" />
     <Property Name="newsDate" Type="varchar" MaxLength="30" />
-    <Property Name="newsImage" Type="varchar" MaxLength="255" />
+    <Property Name="newsImage" Type="varchar" MaxLength="2000" />
     <Property Name="newsDetail" Type="varchar" MaxLength="2000" />
+    <Property Name="author" Type="varchar" MaxLength="40" />
+    <Property Name="imageCaption" Type="varchar" MaxLength="40" />
   </EntityType>
   <EntityContainer Name="newsDatabaseModelStoreContainer">
     <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />

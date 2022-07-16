@@ -18,8 +18,10 @@
         <th>News ID</th>
         <th>Description</th>
         <th>Image</th>
+        <th>Caption</th>
         <th>Date</th>
         <th>Detail</th>
+        <th>Author</th>
     </tr>
     @foreach (var data in Model)
     {
@@ -27,8 +29,10 @@
             <td>@(data.newsId)</td>
             <td>@(data.newsDescription)</td>
             <td><img src="@(data.newsImage!=null?Url.Content(data.newsImage):"")" height="100" width="50" /></td>
+            <td>@(data.imageCaption)</td>
             <td>@(data.newsDate)</td>
             <td>@(data.newsDetail)</td>
+            <td>@(data.author)</td>
             <td><button><a href="@Url.Action("Delete", new {newsId=data.newsId})"><i class="material-icons" style="color:red;">delete</i></a></button></td>
             <td><button><a href="@Url.Action("edit101", new {key=data.newsId})"><i class="material-icons" style="color:green;">edit</i></a></button></td>
 

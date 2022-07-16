@@ -19,8 +19,10 @@
           <Property Name="newsId" Type="int" Nullable="false" />
           <Property Name="newsDescription" Type="varchar" MaxLength="50" />
           <Property Name="newsDate" Type="varchar" MaxLength="30" />
-          <Property Name="newsImage" Type="varchar" MaxLength="255" />
+          <Property Name="newsImage" Type="varchar" MaxLength="2000" />
           <Property Name="newsDetail" Type="varchar" MaxLength="2000" />
+          <Property Name="author" Type="varchar" MaxLength="40" />
+          <Property Name="imageCaption" Type="varchar" MaxLength="40" />
         </EntityType>
         <EntityContainer Name="newsDatabaseModelStoreContainer">
           <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
@@ -44,8 +46,10 @@
           <Property Name="newsId" Type="Int32" Nullable="false" />
           <Property Name="newsDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="newsDate" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="newsImage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="newsImage" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Name="newsDetail" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="author" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="imageCaption" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="newsDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="admins" EntityType="Self.admin" />
@@ -68,6 +72,8 @@
           <EntitySetMapping Name="recentNews">
             <EntityTypeMapping TypeName="newsDatabaseModel.recentNew">
               <MappingFragment StoreEntitySet="recentNews">
+                <ScalarProperty Name="imageCaption" ColumnName="imageCaption" />
+                <ScalarProperty Name="author" ColumnName="author" />
                 <ScalarProperty Name="newsId" ColumnName="newsId" />
                 <ScalarProperty Name="newsDescription" ColumnName="newsDescription" />
                 <ScalarProperty Name="newsDate" ColumnName="newsDate" />

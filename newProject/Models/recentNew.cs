@@ -19,5 +19,7 @@ namespace newProject.Models
         public string newsDate { get; set; }
         public string newsImage { get; set; }
         public string newsDetail { get; set; }
+        public string author { get; set; }
+        public string imageCaption { get; set; }
     }
 }
