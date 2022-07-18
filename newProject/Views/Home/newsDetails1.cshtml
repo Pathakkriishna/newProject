@@ -1,0 +1,61 @@
+﻿
+@model List<newProject.Models.recentNew>
+@{
+    ViewBag.Title = "newsDetails";
+}
+<style>
+    .detail {
+        height: 100%;
+        width: 100%;
+    }
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h3{
+        text-align: center;
+        font-family: 'Italic Outline Art';
+        color:darkmagenta;
+    }
+    .mag{
+        text-align:center;
+    }
+    .mag2{
+        padding-left:10px;
+        padding-right:10px;
+    }
+    .mug{
+        color:black;
+    }
+</style>
+
+<h3 class="hny-title text-center">Recent <span>News</span></h3>
+
+<div class="detail">
+    @foreach (var data in Model)
+    {
+
+        <img src="@(data.newsImage!= null ?  Url.Content(data.newsImage):"")" />
+
+        <h3 class="top-title1">
+            <a >
+                @(data.newsDescription)
+            </a>
+        </h3>
+        <div class="mag">
+            <span class="meta-author text-uppercase">
+                <span>By&nbsp;</span><a  class="author-name"> @(data.author) </a>
+            </span>
+            <span class="author-date">@(data.newsDate)</span>
+        </div>
+        <div class="mag2">
+            <p class="mug">
+                @(data.newsDetail)
+            </p>
+        </div>
+
+    }
+</div>
+

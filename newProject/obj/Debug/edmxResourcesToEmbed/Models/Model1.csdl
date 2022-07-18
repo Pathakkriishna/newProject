@@ -1,11 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="newsDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="newsDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admins" EntityType="newsDatabaseModel.admin" />
+    <EntitySet Name="articles" EntityType="newsDatabaseModel.article" />
+    <EntitySet Name="recentNews" EntityType="newsDatabaseModel.recentNew" />
+  </EntityContainer>
   <EntityType Name="admin">
     <Key>
       <PropertyRef Name="adminId" />
     </Key>
     <Property Name="adminId" Type="Int32" Nullable="false" />
     <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="firstName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="lastName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="article">
+    <Key>
+      <PropertyRef Name="articleId" />
+    </Key>
+    <Property Name="articleId" Type="Int32" Nullable="false" />
+    <Property Name="articleImage" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="caption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="articleDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="articleAuthor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="articleDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="authorimg" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="articleDetail" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="recentNew">
     <Key>
@@ -19,8 +43,4 @@
     <Property Name="author" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="imageCaption" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityContainer Name="newsDatabaseEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="admins" EntityType="Self.admin" />
-    <EntitySet Name="recentNews" EntityType="Self.recentNew" />
-  </EntityContainer>
 </Schema>

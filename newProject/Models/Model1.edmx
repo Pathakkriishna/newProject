@@ -11,6 +11,25 @@
           </Key>
           <Property Name="adminId" Type="int" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="20" />
+          <Property Name="firstName" Type="varchar" MaxLength="15" />
+          <Property Name="lastName" Type="varchar" MaxLength="15" />
+          <Property Name="country" Type="varchar" MaxLength="15" />
+          <Property Name="number" Type="varchar" MaxLength="15" />
+          <Property Name="address" Type="varchar" MaxLength="25" />
+          <Property Name="email" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="articles">
+          <Key>
+            <PropertyRef Name="articleId" />
+          </Key>
+          <Property Name="articleId" Type="int" Nullable="false" />
+          <Property Name="articleImage" Type="varchar" MaxLength="300" />
+          <Property Name="caption" Type="varchar" MaxLength="50" />
+          <Property Name="articleDescription" Type="varchar" MaxLength="100" />
+          <Property Name="articleAuthor" Type="varchar" MaxLength="30" />
+          <Property Name="articleDate" Type="varchar" MaxLength="10" />
+          <Property Name="authorimg" Type="varchar" MaxLength="300" />
+          <Property Name="articleDetail" Type="varchar" MaxLength="5000" />
         </EntityType>
         <EntityType Name="recentNews">
           <Key>
@@ -26,18 +45,43 @@
         </EntityType>
         <EntityContainer Name="newsDatabaseModelStoreContainer">
           <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="articles" EntityType="Self.articles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="recentNews" EntityType="Self.recentNews" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="newsDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="newsDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admins" EntityType="newsDatabaseModel.admin" />
+          <EntitySet Name="articles" EntityType="newsDatabaseModel.article" />
+          <EntitySet Name="recentNews" EntityType="newsDatabaseModel.recentNew" />
+        </EntityContainer>
         <EntityType Name="admin">
           <Key>
             <PropertyRef Name="adminId" />
           </Key>
           <Property Name="adminId" Type="Int32" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="firstName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="article">
+          <Key>
+            <PropertyRef Name="articleId" />
+          </Key>
+          <Property Name="articleId" Type="Int32" Nullable="false" />
+          <Property Name="articleImage" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="caption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="articleDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="articleAuthor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="articleDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="authorimg" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="articleDetail" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="recentNew">
           <Key>
@@ -51,10 +95,6 @@
           <Property Name="author" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="imageCaption" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="newsDatabaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="admins" EntityType="Self.admin" />
-          <EntitySet Name="recentNews" EntityType="Self.recentNew" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -64,8 +104,28 @@
           <EntitySetMapping Name="admins">
             <EntityTypeMapping TypeName="newsDatabaseModel.admin">
               <MappingFragment StoreEntitySet="admin">
-                <ScalarProperty Name="adminId" ColumnName="adminId" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="adminId" ColumnName="adminId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="articles">
+            <EntityTypeMapping TypeName="newsDatabaseModel.article">
+              <MappingFragment StoreEntitySet="articles">
+                <ScalarProperty Name="articleDetail" ColumnName="articleDetail" />
+                <ScalarProperty Name="authorimg" ColumnName="authorimg" />
+                <ScalarProperty Name="articleDate" ColumnName="articleDate" />
+                <ScalarProperty Name="articleAuthor" ColumnName="articleAuthor" />
+                <ScalarProperty Name="articleDescription" ColumnName="articleDescription" />
+                <ScalarProperty Name="caption" ColumnName="caption" />
+                <ScalarProperty Name="articleImage" ColumnName="articleImage" />
+                <ScalarProperty Name="articleId" ColumnName="articleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -74,11 +134,11 @@
               <MappingFragment StoreEntitySet="recentNews">
                 <ScalarProperty Name="imageCaption" ColumnName="imageCaption" />
                 <ScalarProperty Name="author" ColumnName="author" />
-                <ScalarProperty Name="newsId" ColumnName="newsId" />
-                <ScalarProperty Name="newsDescription" ColumnName="newsDescription" />
-                <ScalarProperty Name="newsDate" ColumnName="newsDate" />
-                <ScalarProperty Name="newsImage" ColumnName="newsImage" />
                 <ScalarProperty Name="newsDetail" ColumnName="newsDetail" />
+                <ScalarProperty Name="newsImage" ColumnName="newsImage" />
+                <ScalarProperty Name="newsDate" ColumnName="newsDate" />
+                <ScalarProperty Name="newsDescription" ColumnName="newsDescription" />
+                <ScalarProperty Name="newsId" ColumnName="newsId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

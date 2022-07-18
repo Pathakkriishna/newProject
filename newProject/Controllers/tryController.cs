@@ -16,7 +16,24 @@ namespace newProject.Controllers
         {
             List<recentNew> all_data = db.recentNews.ToList();
             return View(all_data);
+
+
         }
+        public ActionResult recentNews()
+        {
+            List<recentNew> all_data = db.recentNews.ToList();
+            return View(all_data);
+
+
+        }
+        public ActionResult recentArticles()
+        {
+            List<article> all_data = db.articles.ToList();
+            return View(all_data);
+
+
+        }
+
 
 
         public ActionResult Delete(int newsId)

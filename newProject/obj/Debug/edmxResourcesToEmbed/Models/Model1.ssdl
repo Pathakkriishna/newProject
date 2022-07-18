@@ -6,6 +6,25 @@
     </Key>
     <Property Name="adminId" Type="int" Nullable="false" />
     <Property Name="password" Type="varchar" MaxLength="20" />
+    <Property Name="firstName" Type="varchar" MaxLength="15" />
+    <Property Name="lastName" Type="varchar" MaxLength="15" />
+    <Property Name="country" Type="varchar" MaxLength="15" />
+    <Property Name="number" Type="varchar" MaxLength="15" />
+    <Property Name="address" Type="varchar" MaxLength="25" />
+    <Property Name="email" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="articles">
+    <Key>
+      <PropertyRef Name="articleId" />
+    </Key>
+    <Property Name="articleId" Type="int" Nullable="false" />
+    <Property Name="articleImage" Type="varchar" MaxLength="300" />
+    <Property Name="caption" Type="varchar" MaxLength="50" />
+    <Property Name="articleDescription" Type="varchar" MaxLength="100" />
+    <Property Name="articleAuthor" Type="varchar" MaxLength="30" />
+    <Property Name="articleDate" Type="varchar" MaxLength="10" />
+    <Property Name="authorimg" Type="varchar" MaxLength="300" />
+    <Property Name="articleDetail" Type="varchar" MaxLength="5000" />
   </EntityType>
   <EntityType Name="recentNews">
     <Key>
@@ -21,6 +40,7 @@
   </EntityType>
   <EntityContainer Name="newsDatabaseModelStoreContainer">
     <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="articles" EntityType="Self.articles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="recentNews" EntityType="Self.recentNews" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

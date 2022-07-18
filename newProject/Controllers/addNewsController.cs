@@ -32,7 +32,7 @@ namespace newProject.Controllers
             new1.newsImage = "~/uploads/" + file_name;
             db.recentNews.Add(new1);
             db.SaveChanges();
-            return RedirectToAction("tryPage" ,"try");
+            return RedirectToAction("recentNews" ,"try");
         }
 
 

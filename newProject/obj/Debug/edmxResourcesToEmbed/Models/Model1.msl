@@ -4,8 +4,28 @@
     <EntitySetMapping Name="admins">
       <EntityTypeMapping TypeName="newsDatabaseModel.admin">
         <MappingFragment StoreEntitySet="admin">
-          <ScalarProperty Name="adminId" ColumnName="adminId" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
           <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="articles">
+      <EntityTypeMapping TypeName="newsDatabaseModel.article">
+        <MappingFragment StoreEntitySet="articles">
+          <ScalarProperty Name="articleDetail" ColumnName="articleDetail" />
+          <ScalarProperty Name="authorimg" ColumnName="authorimg" />
+          <ScalarProperty Name="articleDate" ColumnName="articleDate" />
+          <ScalarProperty Name="articleAuthor" ColumnName="articleAuthor" />
+          <ScalarProperty Name="articleDescription" ColumnName="articleDescription" />
+          <ScalarProperty Name="caption" ColumnName="caption" />
+          <ScalarProperty Name="articleImage" ColumnName="articleImage" />
+          <ScalarProperty Name="articleId" ColumnName="articleId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -14,11 +34,11 @@
         <MappingFragment StoreEntitySet="recentNews">
           <ScalarProperty Name="imageCaption" ColumnName="imageCaption" />
           <ScalarProperty Name="author" ColumnName="author" />
-          <ScalarProperty Name="newsId" ColumnName="newsId" />
-          <ScalarProperty Name="newsDescription" ColumnName="newsDescription" />
-          <ScalarProperty Name="newsDate" ColumnName="newsDate" />
-          <ScalarProperty Name="newsImage" ColumnName="newsImage" />
           <ScalarProperty Name="newsDetail" ColumnName="newsDetail" />
+          <ScalarProperty Name="newsImage" ColumnName="newsImage" />
+          <ScalarProperty Name="newsDate" ColumnName="newsDate" />
+          <ScalarProperty Name="newsDescription" ColumnName="newsDescription" />
+          <ScalarProperty Name="newsId" ColumnName="newsId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

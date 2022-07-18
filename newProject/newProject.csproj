@@ -128,14 +128,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\addArticleController.cs" />
     <Compile Include="Controllers\addNewsController.cs" />
     <Compile Include="Controllers\adminLoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\signInController.cs" />
     <Compile Include="Controllers\tryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\admin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\article.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
@@ -288,6 +293,11 @@
     <Content Include="Views\addNews\addRecord.cshtml" />
     <Content Include="Views\try\edit101.cshtml" />
     <Content Include="Views\Home\Lifestyle.cshtml" />
+    <Content Include="Views\signIn\register.cshtml" />
+    <Content Include="Views\Home\newsDetails1.cshtml" />
+    <Content Include="Views\try\recentNews.cshtml" />
+    <Content Include="Views\try\recentArticles.cshtml" />
+    <Content Include="Views\addArticle\addArticles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

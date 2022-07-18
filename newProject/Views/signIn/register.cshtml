@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "register";
+   
+}
+
+
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .heading {
+        text-align: center;
+        margin-top: 10px;
+        color: darkmagenta;
+        margin-bottom: 10px;
+        font-family: 'Italic Outline Art';
+    }
+
+    .add {
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+
+    .exit {
+        float: right;
+        background-color: transparent;
+        border: none;
+        color: cornflowerblue;
+        padding-right: 25px;
+    }
+    .registerForm {
+        
+        padding-top:10px;
+        padding-bottom:50px;
+        width: 30%;
+        margin:auto;
+
+    }
+    .mtrl-select{
+        width:100px:
+    }
+    .log-title {
+        text-align: center;
+        color: darkmagenta;
+        margin-bottom: 10px;
+        font-family: 'Italic Outline Art';
+    }
+    .style{
+        width:100%;
+    }
+    .submit > button{
+        border-radius:6px;
+        background-color:darkmagenta;
+        border-color:darkmagenta;
+        color:white;
+
+    }
+    
+   
+</style>
+@using (Html.BeginForm("addAdmin", "signIn", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="registerForm">
+        <h2 class="log-title">Register</h2>
+        <p>
+            Register for free
+        </p>
+        
+        <label class="form-control" for="input">First Name <input class="style" type="text" required="required" id="firstName" name="firstName" /></label><i class="mtrl-select"></i><br />
+        
+
+
+       
+            
+            <label class="form-control" for="input">Last Name <input class="style" type="text" required="required" id="lastName" name="lastName" /></label><i class="mtrl-select"></i><br />
+       
+       
+           
+            <label class="form-control" for="input">User Name  <input class="style" type="text" required="required" id="adminId" name="adminId" /></label><i class="mtrl-select"></i><br />
+       
+                  
+            <label class="form-control" for="input">Password  <input class="style"  type="password" required="required" id="password" name="password" /></label><i class="mtrl-select"></i><br />
+       
+       
+           
+            <label class="form-control" for="input"><a >Email</a>  <input class="style" type="text" required="required" id="email" name="email" /></label><i class="mtrl-select"></i><br />
+       
+           
+            <label class="form-control" for="input">Mobile Number  <input class="style" type="text" required="required" id="number" name="number" /></label><i class="mtrl-select"></i><br />
+       
+            
+            <label class="form-control" for="input">Address <input class="style" type="text" required="required" id="address" name="address" /></label><i class="mtrl-select"></i><br />
+       
+           
+            <label class="form-control" for="input">Country  <input class="style" type="text" required="required" id="country" name="country" /></label><i class="mtrl-select"></i><br />
+       
+
+       
+            <label>
+                <input type="checkbox" checked="checked" /><i class="check-box"></i>Accept Terms & Conditions ?
+            </label><br />
+    
+        <a href="@Url.Action("loginPage", "adminLogin")" title="" class="already-have">Already have an account</a><br /><br />
+        <div class="submit">
+           
+            <button value="Submit" name="">Register</button>
+        </div>
+    </div>
+        
+   
+}
+

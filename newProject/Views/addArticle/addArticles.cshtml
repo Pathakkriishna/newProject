@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "addRecord";
+    ViewBag.Title = "addArticles";
     Layout = null;
 }
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,10 +18,12 @@
         margin-bottom: 10px;
         font-family: 'Italic Outline Art';
     }
-    .add{
-        padding-left:20px;
-        padding-right:10px;
+
+    .add {
+        padding-left: 20px;
+        padding-right: 10px;
     }
+
     .exit {
         float: right;
         background-color: transparent;
@@ -32,36 +34,39 @@
 </style>
 
 
-<h2 class="heading">Add Record</h2>
-<a href="@Url.Action("recentNews","try")"><button class="Exit">Back <i class="fa-solid fa-door-open"></i></button></a>
+<h2 class="heading">Add Articles</h2>
+<a href="@Url.Action("recentarticles","try")"><button class="Exit">Back <i class="fa-solid fa-door-open"></i></button></a>
+
 <div class="add">
     @using (Html.BeginForm("saveData", null, FormMethod.Post, new { @class = "", @enctype = "multipart/form-data" }))
     {
-        <label> News ID</label>
+        <label> Article ID</label>
 
-        <input type="text" class="form-control" placeholder="News ID" name="newsId"><br />
+        <input type="text" class="form-control" placeholder="Article ID" name="articleId"><br />
 
-        <label>News Description</label>
+        <label>Article Description</label>
 
-        <input type="text" class="form-control" placeholder="News Description" name="newsDescription"><br />
+        <input type="text" class="form-control" placeholder="Article Description" name="articleDescription"><br />
 
         <label>Image</label>
-
         <input type="file" value="Choose Image" name="SelectedImg"><br />
 
         <label>Caption</label>
-        <input type="text" class="form-control" placeholder="Image Caption" name="imageCaption"><br />
+        <input type="text" class="form-control" placeholder="Image Caption" name="caption"><br />
 
-        <label>News Date</label>
+        <label>Article Date</label>
 
 
-        <input type="text" class="form-control" placeholder="News Date" name="newsDate"><br />
+        <input type="text" class="form-control" placeholder="Article Date" name="articleDate"><br />
 
-        <label>News Detail</label>
+        <label>article Detail</label>
 
-        <textarea height="50px" class="form-control" placeholder="News detail" name="newsDetail"></textarea><br />
+        <textarea height="50px" class="form-control" placeholder="Article detail" name="articleDetail"></textarea><br />
         <label>Author</label>
-        <input type="text" class="form-control" placeholder="Author name" name="author"><br />
+        <input type="text" class="form-control" placeholder="Author name" name="articleAuthor"><br />
+        
+        <label>Author Picture</label>
+        <input type="file" value="Choose Image" name="SelectedImg1"><br />
 
 
         <input type="submit" value="Add +" class="btn btn-success" style="width: 100%; margin-top: 20px; height: 50px; font-size: 20px;">
@@ -69,5 +74,3 @@
 
     }
 </div>
-
-

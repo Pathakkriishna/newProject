@@ -4,6 +4,7 @@
         
         width: 100%;
         display:flex;
+        flex-wrap:wrap;
     }
 
     .Box {
@@ -11,7 +12,7 @@
         
         height: 500px;
         width:250px;
-        margin-left:10px;
+        margin-left:15px;
     }
 
    
@@ -76,7 +77,7 @@
                                     </div>
                                 </div>
                                 <h5 class="top-title">
-                                    <a href="#">
+                                    <a href="@Url.Action("read", new {id=data.newsId})">
                                         @(data.newsDescription)
                                     </a>
                                 </h5>
@@ -85,9 +86,14 @@
                                     <span class="meta-author text-uppercase">
                                         <span>By&nbsp;</span><a href="#" class="author-name"> @(data.author) </a>
                                     </span>
-                                    <span class="author-date">@(data.newsDate)</span>
+                                    <span class="author-date"> @(data.newsDate)</span>
                                 </div>
-                                <a href="#" class="read-more btn mt-3">Read More</a>
+                                <a href="@Url.Action("read", new {id=data.newsId})" class="read-more btn mt-3">Read More</a>
+                            @*@using(Html.BeginForm("read","Home",FormMethod.Post))
+                                 {
+                                    <input type="text" hidden value=@(data.newsId) name="id"/>
+                                    <button type="submit">read more</button>
+                                 }*@
                             @*</div>*@
                         </div>
                     }
@@ -102,102 +108,40 @@
                         <h3 class="hny-title">Latest <span>Articles</span></h3>
                         <!--/mag-left-grid-1-->
                         <div class="maghny-grids-inf row">
-                            <div class="maghny-gd-1 col-lg-4 col-md-6">
-                                <div class="maghny-grid">
-                                    <figure class="effect-lily">
-                                        <img class="img-fluid" src="~/Content/news_portal/images/grid1.jpg" alt="">
-                                        <figcaption>
-                                            <div>
-                                                <h4>Man holding camera and woman playing <span>violin</span></h4>
-                                                <p>Jan.20.2020 </p>
-                                            </div>
+                            @foreach (var data in Model)
+                            {
+                                <div class="maghny-gd-1 col-lg-4 col-md-6">
+                                    <div class="maghny-grid">
+                                        <figure class="effect-lily">
+                                            <img src="@(data.newsImage != null ? Url.Content(data.newsImage) : "")" />
+                                            <figcaption>
+                                                <div>
+                                                    <h4>@(data.imageCaption)</h4>
+                                                    <p>@(data.newsDate) </p>
+                                                </div>
 
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <h5>
-                                    <a href="#">
-                                        There are many variations that focuses on presenting
-                                    </a>
-                                </h5>
-
-                                <div class="mag-post-meta mt-3">
-                                    <a href="#">
-                                        <img src="~/Content/news_portal/images/admin.jpg"
-                                             class="img-fluid rounded-circle admin-img" alt="">
-                                    </a> <span class="meta-author">
-                                        <span>By&nbsp;</span><a href="#" class="author-name">
-                                            John
-                                            Brain
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <h5>
+                                        <a href="#">
+                                            @(data.newsDescription)
                                         </a>
-                                    </span>
-                                    <span class="author-date">Jan 5, 2020</span>
-                                </div>
-                            </div>
-                            <div class="maghny-gd-1 col-lg-4 col-md-6">
-                                <div class="maghny-grid">
-                                    <figure class="effect-lily">
-                                        <img class="img-fluid" src="~/Content/news_portal/images/grid2.jpg" alt="">
-                                        <figcaption>
-                                            <div>
-                                                <h4>Adult beautiful breakfast <span>brunette</span></h4>
-                                                <p>Jan.20.2020 </p>
-                                            </div>
+                                    </h5>
 
-                                        </figcaption>
-                                    </figure>
+                                    <div class="mag-post-meta mt-3">
+                                        <a href="#">
+                                            <img src="~/Content/news_portal/images/admin.jpg"
+                                                 class="img-fluid rounded-circle admin-img" alt="">
+                                        </a> <span class="meta-author">
+                                            <span>By&nbsp;</span><a href="#" class="author-name">  @(data.author) </a>
+                                        </span>
+                                        <span class="author-date"> @(data.newsDate)</span>
+                                    </div>
                                 </div>
-                                <h5>
-                                    <a href="#">
-                                        There are many variations that focuses on presenting
-                                    </a>
-                                </h5>
-
-                                <div class="mag-post-meta mt-3">
-                                    <a href="#">
-                                        <img src="~/Content/news_portal/images/admin.jpg"
-                                             class="img-fluid rounded-circle admin-img" alt="">
-                                    </a><span class="meta-author">
-                                        <span>By&nbsp;</span><a href="#" class="author-name">
-                                            John
-                                            Brain
-                                        </a>
-                                    </span>
-                                    <span class="author-date">Jan 5, 2020</span>
-                                </div>
-                            </div>
-                            <div class="maghny-gd-1 col-lg-4 col-md-6">
-                                <div class="maghny-grid">
-                                    <figure class="effect-lily">
-                                        <img class="img-fluid" src="~/Content/news_portal/images/grid3.jpg" alt="">
-                                        <figcaption>
-                                            <div>
-                                                <h4>Man in black shorts on <span>boat end</span></h4>
-                                                <p>Jan.20.2020 </p>
-                                            </div>
-
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <h5>
-                                    <a href="#">
-                                        There are many variations that focuses on presenting
-                                    </a>
-                                </h5>
-                                <div class="mag-post-meta mt-3">
-                                    <a href="#">
-                                        <img src="~/Content/news_portal/images/admin.jpg"
-                                             class="img-fluid rounded-circle admin-img" alt="">
-                                    </a> <span class="meta-author">
-                                        <span>By&nbsp;</span><a href="#" class="author-name">
-                                            John
-                                            Brain
-                                        </a>
-                                    </span>
-                                    <span class="author-date">Jan 5, 2020</span>
-                                </div>
-                            </div>
+                            }
                         </div>
+                               
                     </div>
                     <!--//mag-hny-content-1-->
                     <!--//mag-left-grid-1-->

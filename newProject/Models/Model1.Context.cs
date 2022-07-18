@@ -26,6 +26,7 @@ namespace newProject.Models
         }
     
         public virtual DbSet<admin> admins { get; set; }
+        public virtual DbSet<article> articles { get; set; }
         public virtual DbSet<recentNew> recentNews { get; set; }
     }
 }

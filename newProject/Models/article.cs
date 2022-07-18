@@ -12,15 +12,15 @@ namespace newProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class admin
+    public partial class article
     {
-        public int adminId { get; set; }
-        public string password { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string country { get; set; }
-        public string number { get; set; }
-        public string address { get; set; }
-        public string email { get; set; }
+        public int articleId { get; set; }
+        public string articleImage { get; set; }
+        public string caption { get; set; }
+        public string articleDescription { get; set; }
+        public string articleAuthor { get; set; }
+        public string articleDate { get; set; }
+        public string authorimg { get; set; }
+        public string articleDetail { get; set; }
     }
 }
